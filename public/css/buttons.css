@@ -1,0 +1,102 @@
+/*******  Buttons!  *******/
+
+.green-butn {
+-moz-box-shadow: inset 1px 1px 1px 0px #80ffaa;
+-webkit-box-shadow: inset 1px 1px 1px 0px #80ffaa;
+box-shadow: inset 1px 1px 1px 0px #80ffaa;
+background-color: #009933;
+border: 1px solid #006622;
+text-shadow: 1px 1px 0px #006622;
+}
+.green-butn:hover {
+-moz-box-shadow: inset 1px 1px 1px 0px #00e64d;
+-webkit-box-shadow: inset 1px 1px 1px 0px #00e64d;
+box-shadow: inset 1px 1px 1px 0px #00e64d;
+background-color: #006622;
+}
+
+.prpl-butn {
+-moz-box-shadow: inset 1px 1px 1px 0px #e0ccff;
+-webkit-box-shadow: inset 1px 1px 1px 0px #e0ccff;
+box-shadow: inset 1px 1px 1px 0px #e0ccff;
+background-color: #6600ff;
+border: 1px solid #330080;
+text-shadow: 1px 1px 0px #330080;
+}
+.prpl-butn:hover {
+-moz-box-shadow: inset 1px 1px 1px 0px #944dff;
+-webkit-box-shadow: inset 1px 1px 1px 0px #944dff;
+box-shadow: inset 1px 1px 1px 0px #944dff;
+background-color: #330080;
+}
+
+.red-butn {
+-moz-box-shadow: inset 1px 1px 1px 0px #ffc6b3;
+-webkit-box-shadow: inset 1px 1px 1px 0px #ffc6b3;
+box-shadow: inset 1px 1px 1px 0px #ffc6b3;
+background-color: #b32d00;
+border: 1px solid #802000;
+text-shadow: 1px 1px 0px #802000;
+}
+.red-butn:hover {
+-moz-box-shadow: inset 1px 1px 1px 0px #ff6633;
+-webkit-box-shadow: inset 1px 1px 1px 0px #ff6633;
+box-shadow: inset 1px 1px 1px 0px #ff6633;
+background-color: #802000;
+}
+
+.blue-butn {
+-moz-box-shadow: inset 1px 1px 1px 0px #ccccff;
+-webkit-box-shadow: inset 1px 1px 1px 0px #ccccff;
+box-shadow: inset 1px 1px 1px 0px #ccccff;
+background-color: #0000ff;
+border: 1px solid #000080;
+text-shadow: 1px 1px 0px #000080;
+}
+.blue-butn:hover {
+-moz-box-shadow: inset 1px 1px 1px 0px #8080ff;
+-webkit-box-shadow: inset 1px 1px 1px 0px #8080ff;
+box-shadow: inset 1px 1px 1px 0px #8080ff;
+background-color: #000080;
+}
+
+.link-butn { /* styling a href like a button */
+text-align: center;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+padding: 0.75em;
+margin: 0.5em;
+color: white;
+font-family: 'Roboto', sans-serif;
+font-size: 1.05em;
+border-radius: 10px;
+}
+
+.link-butn-sm { /* styling a href like a button */
+text-align: center;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+padding: 0.5em;
+margin: 0.25em;
+color: white;
+font-family: 'Roboto', sans-serif;
+font-size: 1em;
+border-radius: 10px;
+}
+
+.mango-butn {
+  -moz-box-shadow: inset 1px 1px 1px 0px #ffe0b3;
+  -webkit-box-shadow: inset 1px 1px 1px 0px #ffe0b3;
+  box-shadow: inset 1px 1px 1px 0px #ffe0b3;
+  background-color: #ff9633;
+  border: 1px solid #b35900;
+  text-shadow: 1px 1px 0px #b35900;
+}
+.mango-butn:hover {
+  -moz-box-shadow: inset 1px 1px 1px 0px ##ffc266;
+  -webkit-box-shadow: inset 1px 1px 1px 0px ##ffc266;
+  box-shadow: inset 1px 1px 1px 0px ##ffc266;
+  background-color: #b35900;
+}

@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<%- include('../partials/inv-nav') %>
+
+<%- include('../partials/titles2') %>
+
+<%- include('../partials/messages') %>
+<%# inserting the partial bit of code we defined in partials/messages.ejs %>
+
+<% if (parts.length === 0) { %>
+  <div class="titleDiv">
+    <h1>Sorry, no match found for <span class="redSpan"><%= key %></span></h1>
+  </div>
+<% }; %>
+
+  <div class="parent memo-parent">
+
+    <% parts.forEach( (part) => { %>
+      <div class="lg-child grn-memo">
+
+        <a href="/inv/page/<%= part.id %>" class="linky">
+          <h4>
+            <span class="grnSpan">Item #: </span><%= part.itemNum %>
+            <span class="grnSpan">Description: </span><%= part.description %>
+          </h4>
+          <h4>
+            <span class="grnSpan">Warehouse: </span><%= part.warehouse %>
+          </h4>
+        </a>
+      </div>
+    <% }); %>
+    
+  </div>

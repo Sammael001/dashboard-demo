@@ -1,0 +1,599 @@
+
+/*
+#e5f9ff;
+
+#cce6ff;
+#b3daff;
+#80d7ff;
+#00a9f9;
+#0077e6;
+
+#b3ffec;
+#66ffd9;
+#1affc6;
+#00cc99;
+#008060;
+
+#ffebcc;
+#ffd699;
+#ffc266;
+#ff9633;
+#994a00;
+
+#e0ccff;
+#6600ff;
+#330080;
+#330080;
+}
+
+*/
+
+
+/* .mango {
+  width: 30px;
+  height: 40px;
+}
+.mango-sm {
+  width: 20px;
+  height: 30px;
+}
+.mango-xsm {
+  width: 16px;
+  height: 20px;
+} */
+
+            /********   Default element styling   ********/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* background: linear-gradient( rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95) ), url('../images/circuit.png');
+  background-position: center top;*/
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+button {
+  padding: 0.75em;
+  margin: 0.5em;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.05em;
+  /* box-shadow: 2px 2px 2px #737373;    conflicts with box-shadow: inset styling in buttons.css */
+}
+
+/* h1 {
+  margin-block-end: 0em; /* makes title and subtitle meet each other
+} */
+
+h4, h3 {
+  margin: 0.5em;
+}
+
+ol {
+  text-align: left;
+  font-weight: bold;
+}
+ol > li {
+  margin-top: 0.5em;
+}
+
+
+            /********   <span> styling   ********/
+
+
+.bluSpan {
+  color: #006699;
+  /* color: #0069cc; */
+  margin-left: 1.25em;
+}
+.grnSpan {
+  color: #006699;
+  /* color: #00664d; */
+  margin-left: 1.25em;
+}
+.redSpan {
+  color: #cc0000;
+}
+.prpSpan {
+  color: purple;
+}
+
+            /********   Navigation bar styling   ********/
+
+.navbarTag {
+  display: inline-block;
+}
+
+.notifylink {
+  font-weight: bold;
+  color: #990000;
+  text-align: center;
+  text-decoration: none;
+  padding-right: 0.5em;
+}
+.notifylink:hover {
+  color: orange;
+}
+
+.align-right {
+  display: inline-block;
+  margin-right: 2em;
+}
+
+.logo {
+  font-family: 'MuseoModerno', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.logoDiv {
+  padding-left: 0.5em;
+  display: flex;
+  align-items: center;
+}
+/* 
+.brand {
+  color: black;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding-right: 1em;
+}
+.brand:hover {
+  color: white;
+} */
+
+.greeting { /* panel that shows username */
+  background-color: #f2f2f2;
+  padding: 0.25em;
+  margin-right: 1em;
+  margin-left: 2em;
+  border: 1px solid gray;
+}
+
+.nav { /* generic styling for both navbars */
+  display: flex;
+  position: fixed;
+  width: 100%;
+  align-items: center;
+}
+.navbar1 {
+  background-color: #737373;
+  top: 0;
+  justify-content: space-between;
+  height: 4em;
+  background-image:
+    linear-gradient(to bottom, rgba(360, 360, 360, 0.75), rgba(360, 360, 360, 0.75)),
+    url('../images/keyboard.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.navbar2-flexstart {
+  top: 4em; /* Position 2nd navbar below 1st */
+  justify-content: flex-start;
+  border-bottom: solid 5px #f2f2f2;
+  height: 3em;
+}
+
+.navbar2-spacebetween {
+  top: 4em; /* Position 2nd navbar below 1st */
+  justify-content: space-between;
+  border-bottom: solid 5px #f2f2f2;
+  height: 3em;
+}
+
+.frus-nav {
+  background-color: #00a9f9;
+}
+.inv-nav {
+  background-color: #00cc99;
+}
+.mango-nav {
+  /* justify-content: space-between; */
+  background-color: #ff9633;
+}
+.categories {
+  display: none;
+  padding: 0.85em;
+  background-color: #ffc266;
+}
+.dropdown:hover .mango-nav2 {
+  display: block;
+}
+
+.linkDiv {
+  margin-right: 2em;
+}
+
+/* Links inside the navbar */
+.navlink {
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.navlink:hover {
+  color: white;
+}
+
+.logout {
+  background-color: darkgray;
+  border-radius: 10px;
+  padding: 0.5em;
+  border: 1px solid #666666;
+}
+
+.logout:hover {
+  background-color: #666666;
+}
+
+.welcome {
+  margin-bottom: 0.25em;
+  margin-top: 0.25em;
+}
+
+/* Backgrounds for welcome screen */
+
+.background {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(360, 360, 360, 0.5), rgba(360, 360, 360, 1)),
+    url('../images/conference.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+            /*******  Master Classes for children and parents  ********/
+
+
+/* formerly in .child, .lg-child and .edit-child */
+.blu-child {
+  background-color: #cce6ff;
+  border: 1px solid #00a9f9;
+}
+.blu-memo {
+  background-color: #cce6ff;
+  border: 1px solid #00a9f9;
+}
+.blu-memo:hover {
+  background-color: #80d7ff;
+}
+
+.grn-child {
+  background-color: #b3ffec;
+  border: 1px solid #00cc99;
+}
+.grn-memo {
+  background-color: #b3ffec;
+  border: 1px solid #00cc99;
+}
+.grn-memo:hover {
+  background-color: #66ffd9;
+}
+
+.mango-child {
+  background-color: #ffebcc;
+  border: 1px solid #ff9633;
+}
+.mango-memo {
+  background-color: #ffebcc;
+  border: 1px solid #ff9633;
+}
+.mango-memo:hover {
+  background-color: #ffc266;
+}
+
+.purp-child {
+  background-color: #f0e6ff;
+  border: 1px solid #6600ff;
+}
+
+
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.parent {
+  margin-top: 0.75em;
+  display: flex;
+  justify-content: center;
+}
+.left-parent {
+  margin-top: 0.75em;
+  display: flex;
+  justify-content: flex-start;
+}
+.child {
+  margin: 0.5em;
+  padding: 0.75em;
+  text-align: center;
+  box-shadow: 3px 3px 5px 3px #999999;
+}
+
+.bigchild {
+  padding: 2em;
+}
+
+.login-parent {
+  align-items: center;
+}
+.memo-parent {
+  align-items: stretch;
+  flex-flow: row wrap;
+}
+
+.sm-child {
+  width: 350px;
+}
+.med-child {
+  width: 60vw;
+  padding: 1em;
+}
+.login-child {
+  width: 40vw;
+}
+.lg-child {
+  margin: 1em;
+  padding: 0.5em;
+  width: 95vw;
+}
+
+.align-left {
+  text-align: left;
+}
+
+
+            /********  Main content styling  ********/
+
+
+.container {
+  margin-top: 8.5em; /* Add a top margin to avoid content overlay */
+}
+.titleDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.title {
+  margin-top: 0;
+  text-align: center;
+  padding: 0.25em;
+  width: 50vw;
+  margin-block-end: 0em; /* makes title and subtitle meet each other */
+}
+.subtitle {
+  padding: 0.25em;
+  min-width: 30vw;
+  text-align: center;
+}
+
+/* .title-blu {
+  background-color: #00a9f9;
+}
+.sub-blu {
+  background-color: #80d7ff;
+} */
+
+.title-grn {
+  background-color: #00cc99;
+}
+.sub-grn {
+  background-color: #1affc6;
+  border: 1px solid #00cc99;
+}
+
+.title-mango {
+  background-color: #ff9633;
+}
+.sub-mango {
+  background-color: #ffc266;
+  border: 1px solid #ff9633;
+}
+
+.title-purp {
+  background-color: #d1b3ff;
+}
+.sub-purp {
+  background-color: #e0ccff;
+  border: 1px solid slateblue;
+}
+
+.linky {
+  color: black;
+}
+
+
+            /*********  default + custom class <form> styling  *********/
+
+label {
+  font-weight: bold;
+  font-size: 1.10em;
+}
+
+.qty {
+  font-weight: bold;
+  font-size: 1.10em;
+  margin-top: 1em;
+}
+
+/* Makes the invalid (value="") <options> in <select> menu appear red/bold */
+select:invalid {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+/* Prevents the VALID <options> from appearing red while scrolling in <select> menu */
+select:invalid option:not(:disabled) {
+  color: black
+}
+
+ /* Keeps Chrome from giving autofilled inputs a gray background */
+@-webkit-keyframes autofill {
+  0%,100% {
+    color: black;
+    background: white;
+  }
+}
+input:-webkit-autofill {
+  -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+.searchForm {
+  display: none;
+}
+
+#msgDiv {
+  display: none;
+  background-color: #00a9f9;
+  padding: 1em;
+  margin-top: 0.5em;
+}
+
+.form-class {
+  font-family: 'Roboto', sans-serif;
+  padding: 0.5em;
+  margin: 0.5em;
+  box-sizing: border-box;
+  border: 1px solid black;
+  outline: none;
+  font-size: 1.05em;
+}
+
+.form-class:focus {
+  border: 3px solid #ffb3ff;
+}
+
+.width-60 { /* for <input> and <select> */
+  width: 60%;
+}
+
+.width-90 { /* for <input> and <select> */
+  width: 90%;
+}
+
+.radio {
+  margin-right: 2em;
+}
+
+
+.memo-text { /* IMPORTANT! This allows the memo body to display with line breaks */
+  white-space: pre-line;
+  text-align: left;
+}
+
+            /*********  Individual Partpage / Inventorypage styling  *********/
+
+.inventory-title {
+  background-color: #1affc6;
+  width: 75%;
+  padding: 0.5em;
+  margin: auto;
+}
+
+#editDiv, #deleteDiv, #checkInv {
+  display: none;
+}
+
+.editDiv, .deleteDiv, .checkInv {
+  text-align: center;
+}
+
+
+.text-block {
+  text-align: left;
+}
+
+.text-block > p {
+  background-color: white;
+  padding: 2em;
+  margin: 1em;
+}
+
+.author-block {
+  background-color: #ffc266;
+  margin-bottom: 0.5em;
+  padding: 0.25em;
+}
+
+.author-block > p {
+  font-weight: bold;
+  /* background-color: #ffebcc; */
+  display: inline-block;
+  margin: 0.5em;
+  color: #660000;
+}
+
+.author-block > p > span {
+  font-size: 1.15em;
+  color: black;
+}
+
+.warning {
+  color: #cc3300;
+  font-size: 1.25em;
+}
+
+/*   Hidden class   */
+
+.hidden {
+  display: none;
+}
+
+.sales-parent {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.sales-child-big {
+  flex-basis: 45%;
+}
+.sales-child-small {
+  flex-basis: 20%;
+}
+.sales-child {
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: #d1b3ff;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.sales-select {
+  padding: 0.5em;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+}
+.salesDivs {
+  padding: 2em;
+}

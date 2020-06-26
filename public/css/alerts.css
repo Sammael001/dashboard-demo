@@ -1,0 +1,42 @@
+/* https://www.w3schools.com/howto/howto_js_alert.asp */
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  margin: auto; /* keeps div centered on main memo page */
+  width: 75%; /* keeps div centered on main memo page */
+  font-weight: bold;
+  letter-spacing: 0.10em;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.alert-warn {
+  background-color: #ffa366;
+  border: 2px solid #660000;
+  color: #660000;
+}
+
+.alert-success {
+  background-color: #70db70;
+  border: 2px solid #145214;
+  color: #145214;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: black;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: white;
+}

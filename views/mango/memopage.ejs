@@ -1,0 +1,99 @@
+<%- include('../partials/header') %>
+<%- include('../partials/mango-nav') %>
+
+<%- include('../partials/titles3') %>
+
+
+<%- include('../partials/messages') %>
+<%# inserting the partial bit of code we defined in partials/messages.ejs %>
+
+<div class="parent">
+  <div class="child med-child mango-child">
+
+    <div class="author-block">
+      <h3><%= key %></h3>
+    </div>
+
+    <div class="text-block">
+      <p class="memo-text"><%= memo.memoBody %></p>
+      <br>
+      <div class="author-block">
+        <p>Category: <span><%= memo.category %></span></p>
+      </div>
+      <div class="author-block">
+        <p>Created by: <span><%= memo.author %></span></p>
+        <p>Created on: <span><%= createDay %></span></p>
+      </div>
+
+      <%# If the memo has been modified, also give the author of the edit + date it was edited %>
+      <% if (memo.modified) { %>
+        <div class="author-block">
+          <p>Last edit by: <span><%= memo.modAuthor %></span></p>
+          <p>Last edited on: <span><%= modDay %></span></p>
+        </div>
+      <% };%>
+    </div>
+
+  <button class="blue-butn" onclick="showEdit()">Edit Memo</button>
+  <button class="red-butn" onclick="showDelete()">Delete Memo</button>
+
+  </div>
+</div>
+
+
+
+<%# This form should be hidden until an Edit button is clicked %>
+<div class="editDiv" id="editDiv">
+
+  <div class="child lg-child mango-child">
+
+    <h1 class="author-block">Edit Memo</h1>
+    <form action="/mango/edit" method="post">
+      <div class="">
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="form-class width-60"
+          value="<%= memo.title %>"
+          required
+        />
+      </div>
+      <div class="">
+        <textarea
+          id="memoBody"
+          name="memoBody"
+          rows="10"
+          cols="40"
+          class="form-class width-90"
+          required
+        ><%= memo.memoBody %></textarea>
+        <%# Be careful here. I had the closing bracket of textarea and the memo.memoBody on different lines, and the page was appending several white spaces to the start of each memoBody after editing %>
+      </div>
+      <div>
+        <label for="category">Category</label>
+        <select name="category" class="form-class width-60" required>
+          <option value="">Please select</option>
+          <option value="General">General</option>
+          <option value="Employees">Employees</option>
+          <option value="Licensing">Licensing</option>
+        </select>
+      </div>
+
+      <button type="submit" name="memoID" class="blue-butn" value="<%= memo._id %>">Save Edit</button>
+    </form>
+
+    <button onclick="cancelEdit()" class="blue-butn">Cancel Edit</button>
+  </div>
+</div>
+
+<%# This form should be hidden until a delete button is clicked %>
+
+<div class="deleteDiv" id="deleteDiv">
+  <form action="/mango/delete" method="post">
+    <h1>Delete this memo?</h1>
+    <h3 class="warning">Warning! This action can not be undone!</h3>
+    <button type="submit" name="memoID" class="red-butn" value="<%= memo._id %>">Delete Memo</button>
+  </form>
+    <button onclick="cancelDelete()" class="blue-butn">Cancel</button>
+</div>

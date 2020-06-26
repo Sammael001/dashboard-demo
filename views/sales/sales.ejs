@@ -1,0 +1,53 @@
+<%- include('../partials/header') %>
+
+  <div class="titleDiv">
+    <h1 class="logo title title-purp">
+      Sales Rep Lookup
+    </h1>
+  </div>
+  <div class="titleDiv">
+    <h2 class="logo subtitle sub-purp">
+      For All Netscout Products
+    </h2>
+  </div>
+
+  <div class="parent login-parent">
+    <div class="child lg-child purp-child">
+
+      <%- include('../partials/messages') %>
+
+      <h2>This tool applies to all Netscout products, including PFS/nGenius/Infinistream and Arbor</h2>
+      <p>( Not sure if this is a Netscout or NetAlly product?
+        <a href="https://aqueous-woodland-55330.herokuapp.com/mango/memos/5e6bd8e8aa0b29097ad6a40f">
+          Click Here!
+        </a>
+        )
+      </p>
+      <button type="button" class="prpl-butn" id="newCust" onclick="pickNewCust()">New Customers</button>
+      <button type="button" class="prpl-butn" id="currCust" onclick="pickCurrCust()">Current Customers</button>
+      <button type="button" class="prpl-butn" id="serv" onclick="pickServ()">Service Providers</button>
+
+
+      <div class="hidden salesDivs" id="currCustDiv">
+        <h3>For current customers (those with accounts in Salesforce), we are meant to contact the Account Manager.</h3>
+        <p>Once Customer Care has access to <em>see</em> the Account Managers, we will update this message.<p>
+        <p>Until that time, <strong>please use the 'New Customer' lookup.</strong></p>
+      </div>
+
+      <div class="hidden salesDivs" id="servDiv">
+        <h3>Service Providers are internet, phone and cable companies. </h3>
+        <h3>These include companies like AT&T, Verizon, Sprint, T-Mobile, Comcast and Spectrum, as well as smaller companies like Joe's Hosting Service.</h3>
+        <h3>For service provider sales, please contact Robb Jones at 972-244-2630 or Robb.Jones@netscout.com</h3>
+      </div>
+
+      <div class="hidden salesDivs" id="newCustDiv">
+
+        <h3>Please select your region: </h3>
+        <a href="/sales-us" class="link-butn prpl-butn">United States + Canada</a>
+        <a href="/sales-intl" class="link-butn prpl-butn">International</a>
+      </div>
+
+    </div>
+
+
+  </div>

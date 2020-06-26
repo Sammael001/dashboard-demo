@@ -1,0 +1,50 @@
+<%# check to see if the errors array exists %>
+<%# this is because register.ejs may be rendered by the router.get("register") route, where the errors array is NOT passed in as a variable, or by the router.post("register", {errors}) route, where the errors array IS passed in %>
+
+<% if (typeof errors != "undefined") { %> <%# if "errors" was not passed in, it will be undefined %>
+  <% errors.forEach((err) => { %>
+
+    <div class="alert alert-warn">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <%= err.msg %>
+    </div>
+
+  <% }); %>
+<% }; %>
+
+<% if (success_msg != "") { %> <%# if success_msg exists, it will not be an empty string %>
+
+  <div class="alert alert-success">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%= success_msg %>
+    <%#  STEP 6) invoke the flash messages you created, if they exist, in a partial (Step 7 in register.ejs)  %>
+  </div>
+
+<% }; %>
+
+
+
+<% if (error_msg != "") { %>
+
+  <div class="alert alert-warn">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%= error_msg %>
+  </div>
+
+<% }; %>
+
+<% if (error != "") { %>
+
+  <div class="alert alert-warn">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%= error %>
+  </div>
+
+<% }; %>
+
+
+
+<% %>
+<% %>
+<% %>
+<% %>

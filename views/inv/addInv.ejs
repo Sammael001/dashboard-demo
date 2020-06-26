@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<%- include('../partials/inv-nav') %>
+
+<%- include('../partials/titles2') %>
+
+<div class="parent login-parent">
+  <div class="child med-child grn-child">
+
+      <%- include('../partials/messages') %>
+      <%# inserting the partial bit of code we defined in partials/messages.ejs %>
+
+      <form action="/inv/add" method="POST">
+
+        <div class="align-left">
+          <label for="itemNum">Item #: </label>
+          <input type="text" class="form-class" name="itemNum" value="" required>
+          <br>
+          <label for="desc">Description: </label>
+          <input type="text" class="form-class width-60" name="description" value="" required>
+          <br>
+          <label for="desc">Warehouse: </label>
+          <%- include('../partials/siteName') %>
+          <br>
+        </div>
+
+        <button type="submit" class="green-butn" id="confirmAdd">Add New Part To Inventory</button>
+      </form>
+
+</div>
+</div>

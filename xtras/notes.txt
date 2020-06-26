@@ -1,0 +1,53 @@
+
+TO DO:
+
+ 		DONE -  GENERAL: header image instead of gray nav bar
+ 		DONE -  GENERAL: header image as background (gradient fading to white) on login and home page
+ 		DONE -  GENERAL: edit special messages in nav bar
+ 		DONE -  GENERAL: fix page titles and add border
+
++ PROJECT STRUCTURE: move js scripts out of public folder
+
++ SALES: move sales routes from index.js to new sales.js file
++ SALES: edit sales post route to move code into separate helper file
++ SALES: add new sales rep data
+
+
+++ INVENTORY: rework siteFinder helper function to take in 4-char siteName ("BEIJ", "AUST"...) and return warehouse ("China - Beijing", "United States - Austin"...)
+
+inventory entries as shown:
+{ itemNum: "000001", description: "cardboard box", siteName: "AUST", warehouse: "United States - Austin" }
+
++ INVENTORY: edit/simplify selection choices
++ INVENTORY: upload new inventory data
+
+ 		DONE - MEMOS: edit/simplify category choices
++ MEMOS: upload new memos data
+
++ SECURITY: research how to prevent XSS and SQL injection
+-- see: https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68
+
++ DEPLOYMENT: remove .env from repository!!
++ DEPLOYMENT: make sure repo is public
+
+
+...................................................
+
+TO RESOLVE (future) issues with exporting/importing strings that have spaces and new lines:
+
+string literal white-space characters
+\t = Tab
+\r = Return
+\n = Newline
+https://stackoverflow.com/questions/21672334/javascript-how-to-show-escape-characters-in-a-string
+
+var str = '\tTo Confirm Part Numbers\r\n\r\n\tPlease see below';
+console.log(str);
+"	To Confirm Part Numbers
+
+	Please see below"
+
+let newString = (JSON.stringify(str));
+console.log(newString);
+
+""\tTo Confirm Part Numbers\r\n\r\n\tPlease see below""

@@ -1,0 +1,56 @@
+<%- include('../partials/header') %>
+<%- include('../partials/inv-nav') %>
+
+<%- include('../partials/titles2') %>
+
+<%- include('../partials/messages') %>
+<%# inserting the partial bit of code we defined in partials/messages.ejs %>
+
+<div class="parent">
+  <div class="lg-child grn-child">
+
+    <h4>
+      <span class="grnSpan">Item #: </span><%= part.itemNum %>
+      <span class="grnSpan">Description: </span><%= part.description %>
+    </h4>
+    <h4>
+      <span class="grnSpan">Warehouse: </span><%= part.warehouse %>
+      <span class="grnSpan">Site Name: </span><%= part.siteName %>
+    </h4>
+
+  </div>
+</div>
+
+
+
+<%# This form should be hidden until an Edit button is clicked %>
+<div class="editDiv" id="editDiv">
+  <h1>Edit Inventory Entry</h1>
+  <form action="/inv/edit" method="post">
+    <div class="edit-child grn-child">
+      <label for="itemNum">Item #: </label>
+      <input type="text" class="form-class" name="itemNum" value="<%= part.itemNum %>" required>
+      <br>
+      <label for="desc">Description: </label>
+      <input type="text" class="form-class width-60" name="description" value="<%= part.description %>" required>
+      <br>
+      <label for="desc">Site Name: </label>
+      <%- include('../partials/siteName') %>
+    </div>
+
+    <button type="submit" name="partID" class="green-butn" id="saveEdit" value="<%= part._id %>">Save Edit</button>
+  </form>
+
+    <button onclick="cancelEdit()" class="green-butn">Cancel Edit</button>
+</div>
+
+<%# This form should be hidden until a delete button is clicked %>
+
+<div class="deleteDiv" id="deleteDiv">
+  <form action="/inv/delete" method="post">
+    <h1>Delete this entry?</h1>
+    <h3 class="warning">Warning! This action can not be undone!</h3>
+    <button type="submit" name="partID" class="red-butn" value="<%= part._id %>">Delete Part</button>
+  </form>
+    <button onclick="cancelDelete()" class="green-butn">Cancel</button>
+</div>

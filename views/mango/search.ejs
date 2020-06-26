@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+<%- include('../partials/mango-nav') %>
+
+<%- include('../partials/titles3') %>
+
+<div class="parent memo-parent">
+
+  <%- include('../partials/messages') %>
+  <%# inserting the partial bit of code we defined in partials/messages.ejs %>
+
+
+  <div class="child med-child mango-child">
+    <form action="/mango/search" method="POST">
+      <div class="">
+
+        <label for="searchKey"><strong>Keyword:</strong></label>
+        <input
+          type="text"
+          id="searchKey"
+          name="searchKey"
+          class="form-class width-60"
+          placeholder="Enter your search term"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="category"><strong>Category:</strong></label>
+        <select name="category" class="form-class width-60" required>
+          <option value="">Choose a category</option>
+          <option value="all">All Categories</option>
+          <option value="General">General</option>
+          <option value="Employees">Employees</option>
+          <option value="Licensing">Licensing</option>
+        </select>
+      </div>
+
+      <button type="submit" class="blue-butn" >Search!</button>
+    </form>
+  </div>
+
+
+</div>

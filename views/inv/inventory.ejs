@@ -1,0 +1,50 @@
+<%- include('../partials/header') %>
+<%- include('../partials/inv-nav') %>
+
+<%- include('../partials/titles2') %>
+
+<%- include('../partials/messages') %>
+
+<div class="parent memo-parent">
+
+  <div class="child login-child grn-child">
+
+    <form action="/inv/search" method="POST" class="">
+      <h3 class="inventory-title">Search Inventory by Item #</h3>
+      <label for="itemNum">Item Number: </label>
+      <input type="text" class="form-class" name="itemNum" value="" required>
+      <br>
+      <%- include('../partials/warehouse-list') %>
+      <br>
+      <button type="submit" class="green-butn" name="searchType" value="byItem">Search!</button>
+    </form>
+
+  </div>
+
+  <div class="child login-child grn-child">
+
+    <form action="/inv/search" method="POST" class="">
+      <h3 class="inventory-title">Search Inventory by Description</h3>
+      <label for="description">Item Description: </label>
+      <input type="text" class="form-class" name="description" value="" required>
+      <br>
+      <%- include('../partials/warehouse-list') %>
+      <br>
+      <button type="submit" class="green-butn" name="searchType" value="byDesc">Search!</button>
+    </form>
+
+  </div>
+
+  <div class="child med-child grn-child">
+
+    <form action="/inv/search" method="POST" class="">
+      <h3 class="inventory-title">Display Inventory by Warehouse</h3>
+      <%- include('../partials/warehouse-list') %>
+      <br>
+      <button type="submit" class="green-butn" name="searchType" value="fullInv">Search!</button>
+    </form>
+
+  </div>
+
+
+</div>

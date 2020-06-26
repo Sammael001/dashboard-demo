@@ -1,0 +1,50 @@
+<%- include('../partials/header') %>
+<%- include('../partials/mango-nav') %>
+
+<%- include('../partials/titles3') %>
+
+<div class="parent login-parent">
+  <div class="child med-child mango-child">
+
+      <%- include('../partials/messages') %>
+      <%# inserting the partial bit of code we defined in partials/messages.ejs %>
+
+      <form action="/mango/compose" method="POST">
+        <div class="">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="form-class width-60"
+            placeholder="Enter the title of your memo"
+            autofocus
+            required
+          />
+        </div>
+        <div class="">
+          <textarea
+            id="memoBody"
+            name="memoBody"
+            class="form-class width-90"
+            placeholder="Enter your memo here"
+            rows="10"
+            cols="40"
+            required
+          ></textarea>
+        </div>
+        <div>
+          <label for="category">Category:</label>
+          <select name="category" class="form-class width-60" required>
+            <option value="">Select a category</option>
+            <option value="General">General</option>
+            <option value="Employees">Employees</option>
+            <option value="Licensing">Licensing</option>
+          </select>
+        </div>
+
+        <button type="submit" class="blue-butn">Submit Memo</button>
+      </form>
+
+</div>
+</div>

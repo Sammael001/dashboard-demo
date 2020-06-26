@@ -1,0 +1,70 @@
+<%- include('../partials/header') %>
+
+  <div class="titleDiv">
+    <h1 class="logo title title-purp">
+      Sales Rep Lookup
+    </h1>
+  </div>
+  <div class="titleDiv">
+    <h2 class="logo subtitle sub-purp">
+      United States + Canada
+    </h2>
+  </div>
+
+  <div class="parent login-parent">
+    <div class="child lg-child purp-child">
+
+      <%- include('../partials/messages') %>
+      <h2>Please select a territory:</h2>
+
+      <div class="sales-parent">
+
+        <div class="sales-child sales-child-big">
+          <h2>United States</h2>
+          <form class="" action="/sales" method="POST">
+
+              <select class="sales-select" name="stateChosen" required>
+                <% states.forEach(state => { %>
+                  <% if (state === "Please select") { %>
+                    <option class="" value="">
+                  <% } else { %>
+                    <option class="" value="<%= state %>">
+                  <% }; %>
+                    <%= state %>
+                  </option>
+                <% }); %>
+              </select>
+
+              <button type="submit" class="prpl-butn" name="region" value="domestic">Select</button>
+
+          </form>
+
+        </div>
+
+        <div class="sales-child sales-child-big">
+          <h2>Canada</h2>
+
+          <form class="" action="/sales" method="POST">
+            <select class="sales-select" name="stateChosen" required>
+              <% provinces.forEach(province => { %>
+                <% if (province === "Please select") { %>
+                  <option class="" value="">
+                <% } else { %>
+                  <option class="" value="<%= province %>">
+                <% }; %>
+                  <%= province %>
+                </option>
+              <% }); %>
+            </select>
+
+            <button type="submit" class="prpl-butn" name="region" value="domestic">Select</button>
+          </form>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
