@@ -1,104 +1,56 @@
 
-// case "WSSY1":
-// return { siteName: "Australia", oracleName: "UPS-AUS", vendor: "UPS" };
-// case "SAO":
-// return { siteName: "Brazil", oracleName: "NDI-Brazil", vendor: "GCI" };
-// case "WBWN1":
-// return { siteName: "Brunei", oracleName: "UPS-BRUNEI", vendor: "UPS" };
-// case "ONT":
-// return { siteName: "California - Ontario - Kaiser", oracleName: "NDI-ONTCA", vendor: "GCI" };
-// case "SAC":
-// return { siteName: "California - Sacremento - Kaiser", oracleName: "NDI-WSACRA", vendor: "GCI" };
-// case "WBJS1":
-// return { siteName: "China", oracleName: "UPS-CHINA", vendor: "UPS" };
-// case "WBLR1":
-// return { siteName: "India - Bangalore", oracleName: "UPS-BANG", vendor: "UPS" };
-// case "WMAA1":
-// return { siteName: "India - Chennai", oracleName: "UPS-CHENNAI", vendor: "UPS" };
-// case "WCCU1":
-// return { siteName: "India - Kolkata", oracleName: "UPS-KOLK", vendor: "UPS" };
-// case "WBOM1":
-// return { siteName: "India - Mumbai", oracleName: "UPS-BHIWA", vendor: "UPS" };
-// case "WDEL2":
-// return { siteName: "India - New Delhi", oracleName: "UPS-DELHI", vendor: "UPS" };
-// case "ROM":
-// return { siteName: "Italy", oracleName: "NDI-ROME", vendor: "GCI" };
-// case "WNRT1":
-// return { siteName: "Japan", oracleName: "UPS-JAPAN", vendor: "UPS" };
-// case "MEX":
-// return { siteName: "Mexico", oracleName: "NDI-MEX", vendor: "GCI" };
-// case "CAS":
-// return { siteName: "Morocco", oracleName: "NDI-Morocc", vendor: "GCI" };
-// case "TILD":
-// return { siteName: "Netherlands", oracleName: "NDI-NETH", vendor: "GCI" };
-// case "WAUK1":
-// return { siteName: "New Zealand", oracleName: "UPS-NEWZEA", vendor: "UPS" };
-// case "MCT":
-// return { siteName: "Oman", oracleName: "NDI-OMAN", vendor: "GCI" };
-// case "WSIN1":
-// return { siteName: "Singapore", oracleName: "UPS-SING", vendor: "UPS" };
-// case "WTPE3":
-// return { siteName: "Taiwan", oracleName: "UPS-TAIWAN", vendor: "UPS" };
-// case "DAL":
-// return { siteName: "Texas", oracleName: "n/a", vendor: "GCI" };
-// case "LHR":
-// return { siteName: "United Kingdom", oracleName: "NDI-UK", vendor: "GCI" };
-// case "DC":
-// return { siteName: "Washington DC - Kaiser", oracleName: "NDI-VIRG", vendor: "GCI" };
+// <select class="form-class" name="siteName" id="siteName" required>
+//   <option value="">Please select a site</option>
+//   <option value="BEIJ"> China - Beijing </option>
+//   <option value="CHEN"> China - Chengdu </option>
+//   <option value="SHAN"> China - Shanghai </option>
+//   <option value="PARI"> France - Paris </option>
+//   <option value="FRAN"> Germany - Frankfurt </option>
+//   <option value="ROME"> Italy - Rome </option>
+//   <option value="HOKK"> Japan - Hokkaido </option>
+//   <option value="NAGO"> Japan - Nagoya </option>
+//   <option value="TOKY"> Japan - Tokyo </option>
+//   <option value="LOND"> UK - London </option>
+//   <option value="AUST"> US - Austin </option>
+//   <option value="SANF"> US - San Francisco </option>
+//   <option value="NEWY"> US - New York </option>
+// </select>
 
-siteFinder = (warehouse) => {
-  switch (warehouse) {
-    case "WSSY1":
-      return { siteName: "Australia", oracleName: "UPS-AUS", vendor: "UPS" };
-    case "SAO":
-      return { siteName: "Brazil", oracleName: "NDI-Brazil", vendor: "GCI" };
-    case "WBWN1":
-      return { siteName: "Brunei", oracleName: "UPS-BRUNEI", vendor: "UPS" };
-    case "ONT":
-      return { siteName: "California - Ontario - Kaiser", oracleName: "NDI-ONTCA", vendor: "GCI" };
-    case "SAC":
-      return { siteName: "California - Sacremento - Kaiser", oracleName: "NDI-WSACRA", vendor: "GCI" };
-    case "WBJS1":
-      return { siteName: "China", oracleName: "UPS-CHINA", vendor: "UPS" };
-    case "WBLR1":
-      return { siteName: "India - Bangalore", oracleName: "UPS-BANG", vendor: "UPS" };
-    case "WMAA1":
-      return { siteName: "India - Chennai", oracleName: "UPS-CHENNAI", vendor: "UPS" };
-    case "WCCU1":
-      return { siteName: "India - Kolkata", oracleName: "UPS-KOLK", vendor: "UPS" };
-    case "WBOM1":
-      return { siteName: "India - Mumbai", oracleName: "UPS-BHIWA", vendor: "UPS" };
-    case "WDEL2":
-      return { siteName: "India - New Delhi", oracleName: "UPS-DELHI", vendor: "UPS" };
-    case "ROM":
-      return { siteName: "Italy", oracleName: "NDI-ROME", vendor: "GCI" };
-    case "WNRT1":
-      return { siteName: "Japan", oracleName: "UPS-JAPAN", vendor: "UPS" };
-    case "MEX":
-      return { siteName: "Mexico", oracleName: "NDI-MEX", vendor: "GCI" };
-    case "CAS":
-      return { siteName: "Morocco", oracleName: "NDI-MOROCC", vendor: "GCI" };
-    case "TILD":
-      return { siteName: "Netherlands", oracleName: "NDI-NETH", vendor: "GCI" };
-    case "WAUK1":
-      return { siteName: "New Zealand", oracleName: "UPS-NEWZEA", vendor: "UPS" };
-    case "MCT":
-      return { siteName: "Oman", oracleName: "NDI-OMAN", vendor: "GCI" };
-    case "WSIN1":
-      return { siteName: "Singapore", oracleName: "UPS-SING", vendor: "UPS" };
-    case "WTPE3":
-      return { siteName: "Taiwan", oracleName: "UPS-TAIWAN", vendor: "UPS" };
-    case "DAL":
-      return { siteName: "Texas", oracleName: "n/a", vendor: "GCI" };
-    case "LHR":
-      return { siteName: "United Kingdom", oracleName: "NDI-UK", vendor: "GCI" };
-    case "DC":
-      return { siteName: "Washington DC - Kaiser", oracleName: "NDI-VIRG", vendor: "GCI" };
+// inventory entries as shown:
+// { itemNum: "000001", description: "cardboard box", siteName: "AUST", wareCity: "Austin", wareCountry: "United States" }
+
+siteFinder = (siteCode) => {
+  switch (siteCode) {
+    case "BEIJ":
+      return { wareCity: "Beijing", wareCountry: "China" };
+    case "CHEN":
+      return { wareCity: "Chengdu", wareCountry: "China" };
+    case "SHAN":
+      return { wareCity: "Shanghai", wareCountry: "China" };
+    case "PARI":
+      return { wareCity: "Paris", wareCountry: "France" };
+    case "FRAN":
+      return { wareCity: "Frankfurt", wareCountry: "Germany" };
+    case "ROME":
+      return { wareCity: "Rome", wareCountry: "Italy" };
+    case "HOKK":
+      return { wareCity: "Hokkaido", wareCountry: "Japan" };
+    case "NAGO":
+      return { wareCity: "Nagoya", wareCountry: "Japan" };
+    case "TOKY":
+      return { wareCity: "Tokyo", wareCountry: "Japan" };
+    case "LOND":
+      return { wareCity: "London", wareCountry: "United Kingdom" };
+    case "AUST":
+      return { wareCity: "Austin", wareCountry: "United States" };
+    case "SANF":
+      return { wareCity: "San Francisco", wareCountry: "United States" };
+    case "NEWY":
+      return { wareCity: "New York", wareCountry: "United States" };
     default:
-      return { siteName: "Error!", oracleName: "Error!", vendor: "Error!" };
+      return { wareCity: "Error!", wareCountry: "Error!" };
   }
 };
 
-// siteFinder("WAUK1");
 
 module.exports = siteFinder;

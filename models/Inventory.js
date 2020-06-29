@@ -10,14 +10,22 @@ const inventorySchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  warehouse: {
+  siteCode: {
     type: String,
     required: true
   },
-  siteName: {
+  wareCity: {
     type: String,
     required: true
   },
+  wareCountry: {
+    type: String,
+    required: true
+  },
+  quantity: {
+    type: Number,
+    required: true
+  }
 
 });
 

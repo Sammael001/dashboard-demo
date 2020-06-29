@@ -6,23 +6,25 @@ TO DO:
  		DONE -  GENERAL: edit special messages in nav bar
  		DONE -  GENERAL: fix page titles and add border
 
+    DONE -  INVENTORY: rework siteFinder helper function
+    inventory entries as shown: { itemNum: "000001", description: "cardboard box", siteCode: "AUST", wareCity: "Austin", wareCountry: "United States", quantity: 2 }
+
+    DONE - INVENTORY: edit/simplify selection choices
+    DONE - INVENTORY: upload new inventory data
+
+    DONE - MEMOS: edit/simplify category choices
+
++ MEMOS: upload new memos data
+
 + PROJECT STRUCTURE: move js scripts out of public folder
 
+
++ SALES: maybe put Sales Reps data into database???
++ SALES: compress sales selections to show US/int'l sales dropdowns on first page
 + SALES: move sales routes from index.js to new sales.js file
 + SALES: edit sales post route to move code into separate helper file
 + SALES: add new sales rep data
 
-
-++ INVENTORY: rework siteFinder helper function to take in 4-char siteName ("BEIJ", "AUST"...) and return warehouse ("China - Beijing", "United States - Austin"...)
-
-inventory entries as shown:
-{ itemNum: "000001", description: "cardboard box", siteName: "AUST", warehouse: "United States - Austin" }
-
-+ INVENTORY: edit/simplify selection choices
-+ INVENTORY: upload new inventory data
-
- 		DONE - MEMOS: edit/simplify category choices
-+ MEMOS: upload new memos data
 
 + SECURITY: research how to prevent XSS and SQL injection
 -- see: https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68

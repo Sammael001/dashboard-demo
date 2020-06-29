@@ -12,7 +12,6 @@ const Inventory = require("../models/Inventory");
 // const myTally = require("../public/js/reporter-int");
 const objMaker = require("../public/js/objMaker");
 const siteFinder = require("../public/js/siteFinder");
-// these routes are OUTSIDE the current (routes) folder, which is why we preface with ../
 
 
     ///////////       INVENTORY routes       ///////////
@@ -25,7 +24,7 @@ router.get("/search", ensureAuthenticated, (req, res) => {
 });
 
 router.post("/search", ensureAuthenticated, (req, res) => {
-  const { itemNum, searchType, warehouse, description } = req.body;
+  const { itemNum, searchType, wareCountry, description } = req.body;
   let newItemNum;
   if (itemNum) {
     newItemNum = itemNum.toUpperCase();
@@ -33,10 +32,10 @@ router.post("/search", ensureAuthenticated, (req, res) => {
   console.log(`Capitalized Item Num: ${newItemNum}`); // either Item # or undefined (!itemNum)
   console.log(`description: ${description}`); // either a description keyword or undefined
   console.log(`Search Type: ${searchType}`); // either "byItem", "byDesc" or "fullInv"
-  console.log(`Warehouse: ${warehouse}`); // either full warehouse name or Domestic/India
+  console.log(`Warehouse Country: ${wareCountry}`); // country where warehouse is located
 
 
-  const searchObj = objMaker(searchType, warehouse, newItemNum, description); // set searchObj to the return value of calling objMaker with searchType, warehouse + itemNum
+  const searchObj = objMaker(searchType, wareCountry, newItemNum, description); // set searchObj to the return value of calling objMaker with searchType, wareCountry, itemNum and description
 
   const mySearch = (searchType) => {
     if (searchType === "fullInv") {
@@ -48,7 +47,7 @@ router.post("/search", ensureAuthenticated, (req, res) => {
     }
   };
 
-  const subkey = `${mySearch(searchType)} in ${warehouse} inventory stock`;
+  const subkey = `${mySearch(searchType)} in ${wareCountry} inventory stock`;
   const title = 'Search Results';
 
   Inventory.find(searchObj, (err, foundParts) => {
@@ -72,7 +71,7 @@ router.get("/page/:itemID", ensureAuthenticated, (req, res) => {
   Inventory.findOne({_id: itemID}, (err, foundPart) => {
     if (err) { console.log(err);
     } else {
-      const subkey = `P/N ${foundPart.itemNum} in ${foundPart.siteName} warehouse`;
+      const subkey = `P/N ${foundPart.itemNum} in ${foundPart.wareCity} - ${foundPart.wareCountry} warehouse`;
       res.render("inv/inventorypage", { user : req.user, part: foundPart, title: "Parts Inventory", key: subkey });
     }
   });
@@ -88,16 +87,21 @@ router.get("/add", ensureAuthenticated, (req, res) => {
 });
 
 router.post("/add", ensureAuthenticated, (req, res) => {
-  const { itemNum, description, siteName } = req.body;
+  const { itemNum, description, siteCode, quantity } = req.body;
 
-  // TO DO -- take in 4-character siteName and use it to return the warehouse
-  const mySite = siteFinder(siteName);
+  // TO DO -- take in 4-character siteCode and use it to return the wareCity and wareCountry
+  const mySite = siteFinder(siteCode);
+
+  // inventory entries as shown:
+  // { itemNum: "000001", description: "cardboard box", siteCode: "AUST", wareCity: "Austin", wareCountry: "United States", quantity: 2 }
 
   const newInventory = new Inventory({
     itemNum,
     description,
-    siteName,
-    warehouse: mySite
+    siteCode,
+    wareCity: mySite.wareCity,
+    wareCountry: mySite.wareCountry,
+    quantity
   });
 
 
@@ -116,16 +120,18 @@ router.post("/add", ensureAuthenticated, (req, res) => {
       // Inventory - route to EDIT an existing inventory entry
 
 router.post("/edit", ensureAuthenticated, (req, res) => {
-  const { itemNum, description, siteName } = req.body;
+  const { itemNum, description, siteCode, partID, quantity } = req.body;
 
   // TO DO -- take in 4-character siteName and use it to return the warehouse
-  const mySite = siteFinder(siteName);
+  const mySite = siteFinder(siteCode);
 
   const updatedInventory = {
     itemNum,
     description,
-    siteName,
-    warehouse: mySite
+    siteCode,
+    wareCity: mySite.wareCity,
+    wareCountry: mySite.wareCountry,
+    quantity
   };
 
   Inventory.findByIdAndUpdate(partID, updatedInventory, (err) => {
@@ -189,31 +195,6 @@ router.post("/upload", ensureAuthenticated, (req, res) => {
 
 });
 
-
-// experimental route to compress all entries by quantity
-
-// router.get("/report", ensureAuthenticated, (req, res) => {
-// Inventory.find({}, (err, foundParts) => {
-// if (err) { console.log(err);
-// } else {
-//
-// let newArray = myTally(foundParts); // retain myTally here, for running report + JSON-formatting it
-//
-// res.render("inv/report", { user : req.user, parts: newArray, title: "Parts Inventory", key: "CSV Report"});
-// }
-// });
-// });
-
-
-
-// Okay, so it SEEMS the issue with Inventory.find() returning null was that the schema for the Inventory model didn't match the data in the inventorys collection.
-// Modified Model >> const Inventory = mongoose.model("Inventory", inventorySchema, "fixedinventory");
-      //(model name, schema name, collection name)
-// Modified JSON file >> "itemNum": "119738600"   .... before it was "itemNum": 119738600
-    // this was probably the issue: itemNum was a String in the Model, but an integer in the DB
-
-// converted all itemNums in JSON file to strings
-// Achieved this by unchecking "parse numbers" and "parse JSON" on https://www.csvjson.com/csv2json
 
 
 module.exports = router;

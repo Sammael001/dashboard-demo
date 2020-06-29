@@ -18,9 +18,11 @@
           <label for="desc">Description: </label>
           <input type="text" class="form-class width-60" name="description" value="" required>
           <br>
-          <label for="desc">Warehouse: </label>
+          <label for="siteCode">Warehouse: </label>
           <%- include('../partials/siteName') %>
           <br>
+          <label for="quantity">Quantity: </label>
+          <input type="number" class="form-class width-60" name="quantity" value="" required>
         </div>
 
         <button type="submit" class="green-butn" id="confirmAdd">Add New Part To Inventory</button>

@@ -97,12 +97,12 @@ ol > li {
 .bluSpan {
   color: #006699;
   /* color: #0069cc; */
-  margin-left: 1.25em;
+  margin-left: 15px;
 }
 .grnSpan {
-  color: #006699;
+  color: #00664d;
   /* color: #00664d; */
-  margin-left: 1.25em;
+  margin-left: 15px;
 }
 .redSpan {
   color: #cc0000;
@@ -143,7 +143,7 @@ ol > li {
   display: flex;
   align-items: center;
 }
-/* 
+/*
 .brand {
   color: black;
   font-weight: bold;

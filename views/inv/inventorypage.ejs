@@ -14,9 +14,16 @@
       <span class="grnSpan">Description: </span><%= part.description %>
     </h4>
     <h4>
-      <span class="grnSpan">Warehouse: </span><%= part.warehouse %>
-      <span class="grnSpan">Site Name: </span><%= part.siteName %>
+      <span class="grnSpan">Site Code: </span><%= part.siteCode %>
+      <span class="grnSpan">Warehouse City: </span><%= part.wareCity %>
+      <span class="grnSpan">Warehouse Country: </span><%= part.wareCountry %>
     </h4>
+    <h3>
+      <span class="grnSpan">Quantity: </span><%= part.quantity %>
+    </h3>
+
+    <button class="green-butn" onclick="showEdit()">Edit</button>
+    <button class="red-butn" onclick="showDelete()">Delete</button>
 
   </div>
 </div>
@@ -34,8 +41,26 @@
       <label for="desc">Description: </label>
       <input type="text" class="form-class width-60" name="description" value="<%= part.description %>" required>
       <br>
-      <label for="desc">Site Name: </label>
-      <%- include('../partials/siteName') %>
+      <label for="siteCode">Site Name: </label>
+      <select class="form-class" name="siteCode" id="siteCode" required>
+        <option value="<%= part.siteCode %>">Please Select</option>
+        <option value="BEIJ"> China - Beijing </option>
+        <option value="CHEN"> China - Chengdu </option>
+        <option value="SHAN"> China - Shanghai </option>
+        <option value="PARI"> France - Paris </option>
+        <option value="FRAN"> Germany - Frankfurt </option>
+        <option value="ROME"> Italy - Rome </option>
+        <option value="HOKK"> Japan - Hokkaido </option>
+        <option value="NAGO"> Japan - Nagoya </option>
+        <option value="TOKY"> Japan - Tokyo </option>
+        <option value="LOND"> UK - London </option>
+        <option value="AUST"> US - Austin </option>
+        <option value="SANF"> US - San Francisco </option>
+        <option value="NEWY"> US - New York </option>
+      </select>
+      <br>
+      <label for="quantity">Quantity: </label>
+      <input type="text" class="form-class width-60" name="quantity" value="<%= part.quantity %>" required>
     </div>
 
     <button type="submit" name="partID" class="green-butn" id="saveEdit" value="<%= part._id %>">Save Edit</button>
