@@ -34,14 +34,14 @@
 <div class="editDiv" id="editDiv">
   <h1>Edit Inventory Entry</h1>
   <form action="/inv/edit" method="post">
-    <div class="edit-child grn-child">
+    <div class="lg-child grn-child">
       <label for="itemNum">Item #: </label>
       <input type="text" class="form-class" name="itemNum" value="<%= part.itemNum %>" required>
       <br>
       <label for="desc">Description: </label>
       <input type="text" class="form-class width-60" name="description" value="<%= part.description %>" required>
       <br>
-      <label for="siteCode">Site Name: </label>
+      <label for="siteCode">Warehouse: </label>
       <select class="form-class" name="siteCode" id="siteCode" required>
         <option value="<%= part.siteCode %>">Please Select</option>
         <option value="BEIJ"> China - Beijing </option>
@@ -60,7 +60,7 @@
       </select>
       <br>
       <label for="quantity">Quantity: </label>
-      <input type="text" class="form-class width-60" name="quantity" value="<%= part.quantity %>" required>
+      <input type="text" class="form-class" name="quantity" value="<%= part.quantity %>" required>
     </div>
 
     <button type="submit" name="partID" class="green-butn" id="saveEdit" value="<%= part._id %>">Save Edit</button>
