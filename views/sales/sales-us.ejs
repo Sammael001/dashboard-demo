@@ -21,7 +21,7 @@
 
         <div class="sales-child sales-child-big">
           <h2>United States</h2>
-          <form class="" action="/sales" method="POST">
+          <form class="" action="/sales/search" method="POST">
 
               <select class="sales-select" name="stateChosen" required>
                 <% states.forEach(state => { %>
@@ -44,7 +44,7 @@
         <div class="sales-child sales-child-big">
           <h2>Canada</h2>
 
-          <form class="" action="/sales" method="POST">
+          <form class="" action="/sales/search" method="POST">
             <select class="sales-select" name="stateChosen" required>
               <% provinces.forEach(province => { %>
                 <% if (province === "Please select") { %>

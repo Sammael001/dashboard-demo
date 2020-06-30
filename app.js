@@ -68,9 +68,10 @@ next();
 // ROUTES
 
 app.use("/", require("./routes/index"));
-app.use("/users", require("./routes/users")); 
+app.use("/users", require("./routes/users"));
 app.use("/inv", require("./routes/inv"));
-app.use("/mango", require("./routes/mango"));
+app.use("/memos", require("./routes/memos"));
+app.use("/sales", require("./routes/sales"));
 
 // PORT and listen
 

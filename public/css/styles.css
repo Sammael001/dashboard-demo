@@ -212,6 +212,9 @@ ol > li {
 .dropdown:hover .mango-nav2 {
   display: block;
 }
+.sales-nav {
+  background-color: #b380ff;
+}
 
 .linkDiv {
   margin-right: 2em;
@@ -571,6 +574,7 @@ input:-webkit-autofill {
 }
 
 .sales-parent {
+  margin-top: 2em;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -594,6 +598,6 @@ input:-webkit-autofill {
   font-family: 'Roboto', sans-serif;
   outline: none;
 }
-.salesDivs {
+/* .salesDivs {
   padding: 2em;
-}
+} */

@@ -1,0 +1,82 @@
+<%- include('../partials/header') %>
+<%- include('../partials/sales-nav') %>
+
+  <div class="titleDiv">
+    <h2 class="subtitle sub-purp">
+      Search
+    </h2>
+  </div>
+
+  <div class="parent login-parent">
+    <div class="child med-child purp-child">
+
+      <%- include('../partials/messages') %>
+
+      <h2>Customer region:</h2>
+
+      <button type="button" class="prpl-butn" id="newCust" onclick="pickUS()">United States</button>
+      <button type="button" class="prpl-butn" id="currCust" onclick="pickCan()">Canada</button>
+      <button type="button" class="prpl-butn" id="serv" onclick="pickIntl()">International</button>
+
+    </div>
+  </div>
+
+
+      <div class="hidden parent login-parent" id="USDiv">
+          <div class="child med-child purp-child">
+            <h2>U.S. Sales</h2>
+            <h3>Please select your state: </h3>
+
+              <form class="" action="/sales/search" method="POST">
+                <select class="sales-select" name="region" required>
+                  <% states.forEach(state => { %>
+                      <option value="<%= state.region %>">
+                      <%= state.name %>
+                    </option>
+                  <% }); %>
+                </select>
+                  <button type="submit" class="prpl-butn">Select</button>
+              </form>
+
+            </div>
+          </div>
+
+
+
+      <div class="hidden parent login-parent" id="canDiv">
+          <div class="child med-child purp-child">
+            <h2>Canadian Sales</h2>
+            <h3>Please select your province: </h3>
+
+            <form class="" action="/sales/search" method="POST">
+              <select class="sales-select" name="region" required>
+                <% provinces.forEach(province => { %>
+                    <option value="<%= province.region %>">
+                    <%= province.name %>
+                  </option>
+                <% }); %>
+              </select>
+              <button type="submit" class="prpl-butn">Select</button>
+            </form>
+
+          </div>
+      </div>
+
+      <div class="hidden parent login-parent" id="intlDiv">
+          <div class="child lg-child purp-child">
+            <h2>International Sales</h2>
+            <h3>Please select your country: </h3>
+
+            <form class="" action="/sales/search" method="POST">
+              <select class="sales-select" name="region" required>
+                <% countries.forEach(country => { %>
+                    <option value="<%= country.region %>">
+                    <%= country.name %>
+                  </option>
+                <% }); %>
+              </select>
+              <button type="submit" class="prpl-butn">Select</button>
+            </form>
+
+          </div>
+      </div>

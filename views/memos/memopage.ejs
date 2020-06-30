@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<%- include('../partials/mango-nav') %>
+<%- include('../partials/memo-nav') %>
 
 <%- include('../partials/titles3') %>
 
@@ -48,7 +48,7 @@
   <div class="child lg-child mango-child">
 
     <h1 class="author-block">Edit Memo</h1>
-    <form action="/mango/edit" method="post">
+    <form action="/memos/edit" method="post">
       <div class="">
         <input
           type="text"
@@ -73,7 +73,8 @@
       <div>
         <label for="category">Category</label>
         <select name="category" class="form-class width-60" required>
-          <option value="">Please select</option>
+          <option value="<%= memo.category %>">Please select</option>
+          <%# if no category chosen while editing, it defaults to the memo's current category %>
           <option value="General">General</option>
           <option value="Employees">Employees</option>
           <option value="Licensing">Licensing</option>
@@ -90,7 +91,7 @@
 <%# This form should be hidden until a delete button is clicked %>
 
 <div class="deleteDiv" id="deleteDiv">
-  <form action="/mango/delete" method="post">
+  <form action="/memos/delete" method="post">
     <h1>Delete this memo?</h1>
     <h3 class="warning">Warning! This action can not be undone!</h3>
     <button type="submit" name="memoID" class="red-butn" value="<%= memo._id %>">Delete Memo</button>

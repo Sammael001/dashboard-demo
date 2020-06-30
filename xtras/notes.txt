@@ -19,11 +19,35 @@ TO DO:
 + PROJECT STRUCTURE: move js scripts out of public folder
 
 
-+ SALES: maybe put Sales Reps data into database???
-+ SALES: compress sales selections to show US/int'l sales dropdowns on first page
-+ SALES: move sales routes from index.js to new sales.js file
-+ SALES: edit sales post route to move code into separate helper file
-+ SALES: add new sales rep data
+SALES:
+states, provinces and countries have a format like shown:
+states: [
+  { name: "Please select", region: "" },
+  { name: "New York", region: "New York|Northeast" },
+  { name: "Maine", region: "Maine|Northeast" },
+  { name: "Texas", region: "Texas|Southwest" }
+]
+
+loop through each array (states, provinces or countries) and display each state.name as an input select name, but set the value as the state.region:
+<select class="sales-select" name="stateChosen" required>
+  <% states.forEach(state => { %>
+      <option class="" value="<%= state.region %>">
+      <%= state.name %>
+    </option>
+  <% }); %>
+</select>
+
+the region gets posted to sales/search as shown: "Maine|Northeast"
+parse the region from this string and use it to query a list of regions in the database
+let [myState, myRegion] = req.body.region.split("|");
+
+each region will be listed as shown: { region: "Southwest", repName: "Bob Jones", repPhone: "111-111-1111", repEmail: "bobjones@mail.com" }
+
++ SALES: put Sales Reps data into database!
+  DONE - SALES: compress sales selections to show US/int'l sales dropdowns on first page
+  DONE - SALES: move sales routes from index.js to new sales.js file
+  DONE - SALES: edit sales post route to move code into separate helper file
+  DONE - SALES: add new sales rep data
 
 
 + SECURITY: research how to prevent XSS and SQL injection

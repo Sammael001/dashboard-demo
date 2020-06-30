@@ -1,18 +1,18 @@
 
-pickCurrCust = () => {
-  document.getElementById("currCustDiv").style.display = "block";
-  document.getElementById("newCustDiv").style.display = "none";
-  document.getElementById("servDiv").style.display = "none";
+pickUS = () => {
+  document.getElementById("USDiv").style.display = "flex";
+  document.getElementById("canDiv").style.display = "none";
+  document.getElementById("intlDiv").style.display = "none";
 };
 
-pickNewCust = () => {
-  document.getElementById("currCustDiv").style.display = "none";
-  document.getElementById("newCustDiv").style.display = "block";
-  document.getElementById("servDiv").style.display = "none";
+pickCan = () => {
+  document.getElementById("USDiv").style.display = "none";
+  document.getElementById("canDiv").style.display = "flex";
+  document.getElementById("intlDiv").style.display = "none";
 };
 
-pickServ = () => {
-  document.getElementById("currCustDiv").style.display = "none";
-  document.getElementById("newCustDiv").style.display = "none";
-  document.getElementById("servDiv").style.display = "block";
+pickIntl = () => {
+  document.getElementById("USDiv").style.display = "none";
+  document.getElementById("canDiv").style.display = "none";
+  document.getElementById("intlDiv").style.display = "flex";
 };

@@ -15,14 +15,13 @@
     <div class="child lg-child purp-child">
 
       <%- include('../partials/messages') %>
-
       <h2>Please select a country or region:</h2>
 
       <div class="sales-parent">
 
           <% countries.forEach(region => { %>
             <div class="sales-child sales-child-small">
-              <form class="" action="/sales" method="POST">
+              <form class="" action="/sales/search" method="POST">
                 <p><%= region.domain %></p>
                 <input type="hidden" name="dom" value="<%= region.domain %>">
                 <button type="submit" class="prpl-butn" name="region" value="<%=region.name%>">
@@ -35,6 +34,4 @@
       </div>
 
     </div>
-
-
   </div>

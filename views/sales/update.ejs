@@ -1,0 +1,79 @@
+<%- include('../partials/header') %>
+<%- include('../partials/sales-nav') %>
+
+<div class="titleDiv">
+  <h2 class="subtitle sub-purp">
+    Add New Rep by Region
+  </h2>
+</div>
+
+<div class="parent login-parent">
+  <div class="child med-child purp-child">
+
+    <%- include('../partials/messages') %>
+
+    <h3>Warning! This will overwrite the current rep for the region.</h3>
+    <form action="/sales/update" method="POST">
+
+      <label for="region">Region: </label>
+      <select name="region" class="form-class" required>
+        <option value="">Select a region</option>
+        <option value="Federal">US - Federal</option>
+        <option value="Northeast">US - Northeast</option>
+        <option value="Southeast">US - Southeast</option>
+        <option value="Northwest">US - Northwest</option>
+        <option value="Southwest">US - Southwest</option>
+        <option value="North-central">US - North-central</option>
+        <option value="South-central">US - South-central</option>
+        <option value="Mid-atlantic">US - Mid-atlantic</option>
+        <option value="Mountain">US - Mountain</option>
+        <option value="Eastern Canada">CAN - Eastern Canada</option>
+        <option value="Western Canada">CAN - Western Canada</option>
+        <option value="Asia">INTL - Asia</option>
+        <option value="Eastern Europe">INTL - Eastern Europe</option>
+        <option value="Western Europe">INTL - Western Europe</option>
+        <option value="Middle East">INTL - Middle East</option>
+        <option value="United Kingdom">INTL - United Kingdom</option>
+        <option value="Other">INTL - Other</option>
+      </select>
+      <br>
+
+      <label for="repName">Sales Rep Name:</label>
+      <input
+        type="text"
+        id="repName"
+        name="repName"
+        class="form-class width-60"
+        placeholder="First and Last Name"
+        autofocus
+        required
+      />
+      <br>
+
+      <label for="repPhone">Phone Number:</label>
+      <input
+        type="text"
+        id="repPhone"
+        name="repPhone"
+        class="form-class width-60"
+        placeholder="Sales rep phone number"
+        required
+      />
+      <br>
+
+      <label for="repEmail">Email:</label>
+      <input
+        type="text"
+        id="repEmail"
+        name="repEmail"
+        class="form-class width-60"
+        placeholder="Sales rep email"
+        required
+      />
+      <br>
+
+      <button type="submit" class="prpl-butn">Submit</button>
+    </form>
+
+  </div>
+</div>

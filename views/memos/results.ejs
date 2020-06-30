@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<%- include('../partials/mango-nav') %>
+<%- include('../partials/memo-nav') %>
 
 <%- include('../partials/titles3') %>
 
@@ -10,7 +10,7 @@
   <div class="parent memo-parent">
     <div class="child med-child mango-child">
         <h3>No matches found for <span class="redSpan"><%= query %></span></h3>
-        <a href="/mango/search"><h4>Back to Search</h4></a>
+        <a href="/memos/search"><h4>Back to Search</h4></a>
     </div>
   </div>
 <% }; %>
@@ -19,7 +19,7 @@
 <div class="parent memo-parent">
 <% memos.forEach( (memo) => { %>
   <div class="child sm-child mango-memo">
-    <a href="/mango/memos/<%= memo._id %>" class="linky">
+    <a href="/memos/memopage/<%= memo._id %>" class="linky">
       <h2><%= memo.title %></h2>
       <p class="memo-text"><%= memo.memoBody.substring(0,250) %> ... </p>
       </a>

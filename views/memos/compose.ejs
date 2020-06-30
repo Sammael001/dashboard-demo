@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<%- include('../partials/mango-nav') %>
+<%- include('../partials/memo-nav') %>
 
 <%- include('../partials/titles3') %>
 
@@ -7,9 +7,8 @@
   <div class="child med-child mango-child">
 
       <%- include('../partials/messages') %>
-      <%# inserting the partial bit of code we defined in partials/messages.ejs %>
 
-      <form action="/mango/compose" method="POST">
+      <form action="/memos/compose" method="POST">
         <div class="">
           <label for="title">Title:</label>
           <input
