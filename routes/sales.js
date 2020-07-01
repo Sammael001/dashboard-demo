@@ -8,12 +8,12 @@ const Rep = require("../models/Rep");
 
 // custom middleware
 const stateStuff = require("../public/js/stateList");
-const { newStates, newProvinces, newCountries } = stateStuff;
+const { states, provinces, countries } = stateStuff;
 
     // sales routes
 
 router.get("/home", ensureAuthenticated, (req, res) => {
-  res.render("sales/home", { user : req.user, states: newStates, provinces: newProvinces, countries: newCountries });
+  res.render("sales/home", { user : req.user, states, provinces, countries });
 });
 
 router.post("/search", ensureAuthenticated, (req, res) => {
@@ -21,10 +21,19 @@ router.post("/search", ensureAuthenticated, (req, res) => {
   let [myState, myRegion] = req.body.region.split("|");
   console.log(`Selected: ${myState}`);
   console.log(`Region: ${myRegion}`);
+  // once the reps are uploaded, query the Reps by region and return the correct document
 
+  Rep.findOne({ region: myRegion }, (err, foundRep) => {
+    if (err) { console.log(err);
+    } else {
+      console.log(foundRep);
+      const { repName, repPhone, repEmail } = foundRep;
+      let messageString = `For product sales in ${myState}, please contact ${repName} at ${repPhone} or ${repEmail}`;
+      res.render("sales/sales-results", { user: req.user, messageString });
+      // res.redirect("/sales/home");
+    }
+  })
 
-  res.redirect("/sales/home");
-  // res.render("sales/sales-results", { user: req.user, contactString });
 });
 
 router.get("/update", ensureAuthenticated, (req, res) => {
@@ -38,11 +47,22 @@ router.post("/update", ensureAuthenticated, (req, res) => {
   console.log(`repPhone: ${repPhone}`);
   console.log(`repEmail: ${repEmail}`);
 
-  // take the above info and create new Reps and store them to the Rep repository
-  // once all reps are filled out, edit the router.get("/update") route to Rep.findOne({_id: requestedID} .. )
-  // then edit the router.post("/update") route to Rep.findByIdAndUpdate
+  Rep.findOne({ region: region }, (err, foundRep) => {
+    if (err) { console.log(err);
+    } else {
+      foundRep.repName = repName; // foundRep.repName = req.body.repName;
+      foundRep.repPhone = repPhone;
+      foundRep.repEmail = repEmail;
+      console.log(foundRep);
+      foundRep.save()
+        .then(user => {
+          req.flash("success_msg", "Sales rep info has been updated successfully");
+          res.redirect("/sales/update");
+        })
+        .catch(err => console.log(err));
+    }
+  })
 
-  res.redirect("/sales/update");
 });
 
 module.exports = router;

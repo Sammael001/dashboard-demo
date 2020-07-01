@@ -14,66 +14,23 @@ TO DO:
 
     DONE - MEMOS: edit/simplify category choices
 
-+ MEMOS: upload new memos data
-
-+ PROJECT STRUCTURE: move js scripts out of public folder
+    DONE - MEMOS: upload new memos data
 
 
-SALES:
-states, provinces and countries have a format like shown:
-states: [
-  { name: "Please select", region: "" },
-  { name: "New York", region: "New York|Northeast" },
-  { name: "Maine", region: "Maine|Northeast" },
-  { name: "Texas", region: "Texas|Southwest" }
-]
+    DONE - SALES: put Sales Reps data into database!
+    DONE - SALES: compress sales selections to show US/int'l sales dropdowns on first page
+    DONE - SALES: move sales routes from index.js to new sales.js file
+    DONE - SALES: edit sales post route to move code into separate helper file
+    DONE - SALES: add new sales rep data
 
-loop through each array (states, provinces or countries) and display each state.name as an input select name, but set the value as the state.region:
-<select class="sales-select" name="stateChosen" required>
-  <% states.forEach(state => { %>
-      <option class="" value="<%= state.region %>">
-      <%= state.name %>
-    </option>
-  <% }); %>
-</select>
-
-the region gets posted to sales/search as shown: "Maine|Northeast"
-parse the region from this string and use it to query a list of regions in the database
-let [myState, myRegion] = req.body.region.split("|");
-
-each region will be listed as shown: { region: "Southwest", repName: "Bob Jones", repPhone: "111-111-1111", repEmail: "bobjones@mail.com" }
-
-+ SALES: put Sales Reps data into database!
-  DONE - SALES: compress sales selections to show US/int'l sales dropdowns on first page
-  DONE - SALES: move sales routes from index.js to new sales.js file
-  DONE - SALES: edit sales post route to move code into separate helper file
-  DONE - SALES: add new sales rep data
+    <script>alert(document.domain);</script>
 
 
-+ SECURITY: research how to prevent XSS and SQL injection
--- see: https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68
+  + SECURITY: research how to prevent XSS and SQL injection
+  -- see: https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68
 
-+ DEPLOYMENT: remove .env from repository!!
-+ DEPLOYMENT: make sure repo is public
+  + DEPLOYMENT: remove .env from repository!!
+  + DEPLOYMENT: make sure repo is public
 
 
-...................................................
-
-TO RESOLVE (future) issues with exporting/importing strings that have spaces and new lines:
-
-string literal white-space characters
-\t = Tab
-\r = Return
-\n = Newline
-https://stackoverflow.com/questions/21672334/javascript-how-to-show-escape-characters-in-a-string
-
-var str = '\tTo Confirm Part Numbers\r\n\r\n\tPlease see below';
-console.log(str);
-"	To Confirm Part Numbers
-
-	Please see below"
-
-let newString = (JSON.stringify(str));
-console.log(newString);
-
-""\tTo Confirm Part Numbers\r\n\r\n\tPlease see below""
+........................

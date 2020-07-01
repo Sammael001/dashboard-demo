@@ -9,54 +9,60 @@
 
       <%- include('../partials/messages') %>
 
-      <form action="/users/reset" method="POST">
-        <div class="">
-          <input
-            type="password"
-            id="token"
-            name="token"
-            class="form-class width-60"
-            placeholder="Enter your password reset token here"
-            autofocus
-            value="<%= typeof token != 'undefined' ? token : '' %>"
-            <%# this above line prevents blanking out the form if submitted with missing/incorrect info %>
-          />
-          <br>
-        </div>
-        <div class="">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-class width-60"
-            placeholder="Your email address"
-            value="<%= typeof email != 'undefined' ? email : '' %>"
-          />
-        </div>
-        <div class="">
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-class width-60"
-            placeholder="Choose a new password"
-            value="<%= typeof password != 'undefined' ? password : '' %>"
-          />
-        </div>
-        <div class="">
-          <input
-            type="password"
-            id="password2"
-            name="password2"
-            class="form-class width-60"
-            placeholder="Confirm your new password"
-            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-          />
-        </div>
-        <button type="submit" class="blue-butn">
-          Reset Password
-        </button>
+      <form>
+        <fieldset disabled="disabled">
+          <h3><span class="redSpan">Sorry, the password reset option is disabled for the DEMO version of this app.</span></h3>
+          <div>
+            <input
+              type="password"
+              id="token"
+              name="token"
+              class="form-class width-60"
+              placeholder="Your password reset token"
+              autofocus
+              value="<%= typeof token != 'undefined' ? token : '' %>"
+              <%# this above line prevents blanking out the form if submitted with missing/incorrect info %>
+            />
+            <br>
+          </div>
+          <div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-class width-60"
+              placeholder="Your email address"
+              value="<%= typeof email != 'undefined' ? email : '' %>"
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-class width-60"
+              placeholder="Choose a new password"
+              value="<%= typeof password != 'undefined' ? password : '' %>"
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              class="form-class width-60"
+              placeholder="Confirm your new password"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            />
+          </div>
+          <button type="submit" class="blue-butn">
+            Reset Password
+          </button>
+
+        </fieldset>
       </form>
+
+
       <p>Have An Account? <a href="/users/login">Login</a></p>
     </div>
   </div>

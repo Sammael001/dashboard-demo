@@ -1,7 +1,7 @@
 
 module.exports = {
 
-  newStates: [
+  states: [
     { name: "Please select", region: "" },
     { name: "Federal", region: "Federal|Federal" },
     { name: "Alabama", region: "Alabama|Southeast" },
@@ -57,7 +57,7 @@ module.exports = {
     { name: "Wyoming", region: "Wyoming|Northwest" }
   ],
 
-  newProvinces: [
+  provinces: [
     { name: "Please select", region: "" },
     { name: "Yukon Territory", region: "Yukon Territory|Western Canada" },
     { name: "Northwest Territories", region: "Northwest Territories|Western Canada" },
@@ -74,7 +74,7 @@ module.exports = {
     { name: "Nova Scotia", region: "Nova Scotia|Eastern Canada"}
   ],
 
-  newCountries: [
+  countries: [
     { name: "Please select", region: "" },
     { name: "China", region: "China|Asia" },
     { name: "England", region: "England|United Kingdom" },
@@ -97,7 +97,7 @@ module.exports = {
     { name: "Turkey", region: "Turkey|Eastern Europe" },
     { name: "Ukraine", region: "Ukraine|Eastern Europe" },
     { name: "Wales", region: "Wales|United Kingdom" },
-    { name: "I don't see my country listed here", region: "other|Other" }
+    { name: "I don't see my country listed here", region: "other territories|Other" }
   ]
 
 

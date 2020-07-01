@@ -10,6 +10,7 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
 
+const xss = require("xss-clean");
 
 const app = express();
 
@@ -30,13 +31,9 @@ app.use(express.static("public")); // necessary to serve up css/js from public f
 app.use(expressLayouts); // this line goes above
 app.set("view engine", "ejs"); // this line goes below
 
-// BodyParser - now a part of EJS and does not need to be npm installed
-// app.use(express.urlencoded({ extended: false }));
 
-// These lines below fixed error regarding "PayloadTooLargeError: request entity too large" when uploading JSON to db
-// https://stackoverflow.com/questions/19917401/error-request-entity-too-large
-app.use(express.json({limit: '50mb'}));
-app.use(express.urlencoded({limit: '50mb', extended: true}));
+app.use(express.json({limit: '10kb'}));
+app.use(express.urlencoded({limit: '10kb', extended: true}));
 
 // Express-session
 // STEP 2) use express-session middleware
@@ -64,6 +61,8 @@ res.locals.error = req.flash("error"); // this is passport's default error messa
 next();
 });
 
+// prevent XSS
+app.use(xss());
 
 // ROUTES
 

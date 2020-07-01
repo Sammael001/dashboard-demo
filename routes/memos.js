@@ -14,7 +14,7 @@ router.get("/home", ensureAuthenticated, (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render("memos/home", { user : req.user, memos: foundMemos, title: "Office Memos", key: "All Memos" }); // rendering memos.ejs
+      res.render("memos/home", { user : req.user, memos: foundMemos, key: "All Memos" }); // rendering memos.ejs
     }
   });
 });
@@ -27,7 +27,7 @@ router.get("/pages/:categoryID", ensureAuthenticated, (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render("memos/home", { user : req.user, memos: foundMemos, title: "Office Memos", key: catID });
+      res.render("memos/home", { user : req.user, memos: foundMemos, key: catID });
     }
   });
 });
@@ -40,7 +40,7 @@ router.get("/myMemos", ensureAuthenticated, (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render("memos/home", { user : req.user, memos: foundMemos, title: "Office Memos", key: "My Memos" });
+      res.render("memos/home", { user : req.user, memos: foundMemos, key: "My Memos" });
     }
   });
 });
@@ -48,7 +48,7 @@ router.get("/myMemos", ensureAuthenticated, (req, res) => {
     // SEARCH routes
 
 router.get("/search", ensureAuthenticated, (req, res) => {
-  res.render("memos/search", {user : req.user, title: "Office Memos", key: "Search"});
+  res.render("memos/search", {user : req.user, key: "Search"});
 });
 
 
@@ -71,8 +71,7 @@ router.post("/search", ensureAuthenticated, (req, res) => {
   Memo.find(searchObj, (err, foundMemos) => {
     if (err) { console.log(err);
     } else {
-      console.log(foundMemos);
-      res.render("memos/results", { user : req.user, memos: foundMemos, title: "Office Memos", key: myKey, query: query });
+      res.render("memos/results", { user : req.user, memos: foundMemos, key: myKey, query: query });
     }
   });
 
@@ -97,7 +96,7 @@ router.get("/memopage/:memoID", ensureAuthenticated, (req, res) => {
       const createDay = new Date(foundMemo.date).toDateString();
       const modDay = new Date(foundMemo.modDate).toDateString();
 
-      res.render("memos/memopage", { user : req.user, memo: foundMemo, createDay: createDay, modDay: modDay, title: "Office Memos", key: foundMemo.title });
+      res.render("memos/memopage", { user : req.user, memo: foundMemo, createDay: createDay, modDay: modDay, key: foundMemo.title });
     }
   });
 });
@@ -106,7 +105,7 @@ router.get("/memopage/:memoID", ensureAuthenticated, (req, res) => {
   // COMPOSE route for creating new memos
 
 router.get("/compose", ensureAuthenticated, (req, res) => {
-  res.render("memos/compose", { user : req.user, title: "Office Memos", key: "Compose" }); // rendering compose.ejs
+  res.render("memos/compose", { user : req.user, key: "Compose" }); // rendering compose.ejs
 });
 
 router.post("/compose", ensureAuthenticated, (req, res) => {

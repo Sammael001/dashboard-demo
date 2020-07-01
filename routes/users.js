@@ -113,67 +113,69 @@ router.get("/reset", (req, res) => {
   res.render("main/reset");
 });
 
-router.post("/reset", (req, res) => {
-  const { email, token, password, password2 } = req.body;
+// DEMO version -- disabled password reset functionality
 
-  let errors = []; // initialize empty array to hold validation errors
-
-  // check required fields
-  if (!email || !password || !password2 || !token) { // if any field is blank...
-    errors.push({ msg: "Please fill in all fields" }); // .. push an error OBJECT into errors array
-  }
-  if (token !== process.env.MY_TOKEN) {
-    errors.push({ msg: "Your token is incorrect, please try again" });
-  }
-  // check that passwords match
-  if (password !== password2) {
-    errors.push({ msg: "Please check that both passwords match" }); //
-  }
-  // check that password is at least 6 characters long
-  if (password.length < 6) {
-    errors.push({ msg: "Password should be at least 6 characters" }); //
-  }
-
-  if (errors.length > 0) { // if there ARE any errors stored in the errors array
-    res.render("reset", {
-      errors, // because we have destructured above, we don't have to write "email:email" and so on
-      token,
-      email,
-      password,
-      password2
-    });
-
-  } else {
-    // validation passed
-    User.findOne({ email: email }) // find a User in the database whose email matches req.body.email
-      .then(user => { // this returns a promise with the found user
-        if (user) { // if there were any users found...
-          // reset user's password
-
-          // hash the password
-          bcrypt.genSalt(10, (err, salt) => {
-          // bcrypt.genSalt() takes in # of salt rounds, and returns a callback with the generated salt
-            bcrypt.hash(password, salt, (err, hash) => {
-            // bcrypt.hash() takes in the password to be hashed, the salt, and returns a cb with the hashed password
-              if (err) throw err;
-              user.password = hash; // set the found User's password to the hashed result of bcrypt.hash()
-              user.save() // .save() returns a promise
-                .then(user => {
-                  // STEP 5) after saving a new user, call req.flash() with the message, and define the message text (STEP 6 is in messages.ejs)
-                  req.flash("success_msg", "Password reset successful, please login again");
-                  res.redirect("/users/login"); // once user.save() has executed, redirect
-                })
-                .catch(err => console.log(err));
-            });
-          }); // end of bcrypt.genSalt
-
-        } else {
-          // push error that the email does not exist
-          errors.push({ msg: "That email address is not yet registered" });
-          res.render("reset", { errors, email, token, password, password2 });
-        }
-      }); // end of User.findOne().then()
-  }
-}); // end of router.post()
+// router.post("/reset", (req, res) => {
+//   const { email, token, password, password2 } = req.body;
+//
+//   let errors = []; // initialize empty array to hold validation errors
+//
+//   // check required fields
+//   if (!email || !password || !password2 || !token) { // if any field is blank...
+//     errors.push({ msg: "Please fill in all fields" }); // .. push an error OBJECT into errors array
+//   }
+//   if (token !== process.env.MY_TOKEN) {
+//     errors.push({ msg: "Your token is incorrect, please try again" });
+//   }
+//   // check that passwords match
+//   if (password !== password2) {
+//     errors.push({ msg: "Please check that both passwords match" }); //
+//   }
+//   // check that password is at least 6 characters long
+//   if (password.length < 6) {
+//     errors.push({ msg: "Password should be at least 6 characters" }); //
+//   }
+//
+//   if (errors.length > 0) { // if there ARE any errors stored in the errors array
+//     res.render("reset", {
+//       errors, // because we have destructured above, we don't have to write "email:email" and so on
+//       token,
+//       email,
+//       password,
+//       password2
+//     });
+//
+//   } else {
+//     // validation passed
+//     User.findOne({ email: email }) // find a User in the database whose email matches req.body.email
+//       .then(user => { // this returns a promise with the found user
+//         if (user) { // if there were any users found...
+//           // reset user's password
+//
+//           // hash the password
+//           bcrypt.genSalt(10, (err, salt) => {
+//           // bcrypt.genSalt() takes in # of salt rounds, and returns a callback with the generated salt
+//             bcrypt.hash(password, salt, (err, hash) => {
+//             // bcrypt.hash() takes in the password to be hashed, the salt, and returns a cb with the hashed password
+//               if (err) throw err;
+//               user.password = hash; // set the found User's password to the hashed result of bcrypt.hash()
+//               user.save() // .save() returns a promise
+//                 .then(user => {
+//                   // STEP 5) after saving a new user, call req.flash() with the message, and define the message text (STEP 6 is in messages.ejs)
+//                   req.flash("success_msg", "Password reset successful, please login again");
+//                   res.redirect("/users/login"); // once user.save() has executed, redirect
+//                 })
+//                 .catch(err => console.log(err));
+//             });
+//           }); // end of bcrypt.genSalt
+//
+//         } else {
+//           // push error that the email does not exist
+//           errors.push({ msg: "That email address is not yet registered" });
+//           res.render("reset", { errors, email, token, password, password2 });
+//         }
+//       }); // end of User.findOne().then()
+//   }
+// }); // end of router.post()
 
 module.exports = router;

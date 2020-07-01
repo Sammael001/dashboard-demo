@@ -34,3 +34,30 @@ showInventory = () => {
   x.style.display = "block";
   x.scrollIntoView();
 };
+
+showCats = () => {
+  const categories = document.querySelector(".categories");
+  if ((!categories.style.display) || (categories.style.display === "none")) {
+    categories.style.display = "block";
+  } else {
+    categories.style.display = "none";
+  }
+};
+
+pickUS = () => {
+  document.getElementById("USDiv").style.display = "flex";
+  document.getElementById("canDiv").style.display = "none";
+  document.getElementById("intlDiv").style.display = "none";
+};
+
+pickCan = () => {
+  document.getElementById("USDiv").style.display = "none";
+  document.getElementById("canDiv").style.display = "flex";
+  document.getElementById("intlDiv").style.display = "none";
+};
+
+pickIntl = () => {
+  document.getElementById("USDiv").style.display = "none";
+  document.getElementById("canDiv").style.display = "none";
+  document.getElementById("intlDiv").style.display = "flex";
+};
