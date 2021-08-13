@@ -36,33 +36,33 @@ router.post("/search", ensureAuthenticated, (req, res) => {
 
 });
 
-router.get("/update", ensureAuthenticated, (req, res) => {
-  res.render("sales/update", { user: req.user });
-});
-
-router.post("/update", ensureAuthenticated, (req, res) => {
-  const { region, repName, repPhone, repEmail } = req.body;
-  console.log(`region: ${region}`);
-  console.log(`repName: ${repName}`);
-  console.log(`repPhone: ${repPhone}`);
-  console.log(`repEmail: ${repEmail}`);
-
-  Rep.findOne({ region: region }, (err, foundRep) => {
-    if (err) { console.log(err);
-    } else {
-      foundRep.repName = repName; // foundRep.repName = req.body.repName;
-      foundRep.repPhone = repPhone;
-      foundRep.repEmail = repEmail;
-      console.log(foundRep);
-      foundRep.save()
-        .then(user => {
-          req.flash("success_msg", "Sales rep info has been updated successfully");
-          res.redirect("/sales/update");
-        })
-        .catch(err => console.log(err));
-    }
-  })
-
-});
+// router.get("/update", ensureAuthenticated, (req, res) => {
+//   res.render("sales/update", { user: req.user });
+// });
+//
+// router.post("/update", ensureAuthenticated, (req, res) => {
+//   const { region, repName, repPhone, repEmail } = req.body;
+//   console.log(`region: ${region}`);
+//   console.log(`repName: ${repName}`);
+//   console.log(`repPhone: ${repPhone}`);
+//   console.log(`repEmail: ${repEmail}`);
+//
+//   Rep.findOne({ region: region }, (err, foundRep) => {
+//     if (err) { console.log(err);
+//     } else {
+//       foundRep.repName = repName; // foundRep.repName = req.body.repName;
+//       foundRep.repPhone = repPhone;
+//       foundRep.repEmail = repEmail;
+//       console.log(foundRep);
+//       foundRep.save()
+//         .then(user => {
+//           req.flash("success_msg", "Sales rep info has been updated successfully");
+//           res.redirect("/sales/update");
+//         })
+//         .catch(err => console.log(err));
+//     }
+//   })
+//
+// });
 
 module.exports = router;

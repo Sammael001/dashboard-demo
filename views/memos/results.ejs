@@ -20,7 +20,7 @@
 <% memos.forEach( (memo) => { %>
   <div class="child sm-child mango-memo">
     <a href="/memos/memopage/<%= memo._id %>" class="linky">
-      <h2><%= memo.title %></h2>
+      <h2 class="author-block"><%= memo.title %></h2>
       <p class="memo-text"><%= memo.memoBody.substring(0,250) %> ... </p>
       </a>
   </div>

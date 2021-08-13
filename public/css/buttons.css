@@ -100,3 +100,10 @@ border-radius: 10px;
   box-shadow: inset 1px 1px 1px 0px ##ffc266;
   background-color: #b35900;
 }
+
+@media (max-width: 1000px) {
+  .link-butn-sm {
+    padding: 0.45em;
+    margin: 0.1em;
+  }
+}

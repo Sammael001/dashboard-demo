@@ -29,19 +29,6 @@
 */
 
 
-/* .mango {
-  width: 30px;
-  height: 40px;
-}
-.mango-sm {
-  width: 20px;
-  height: 30px;
-}
-.mango-xsm {
-  width: 16px;
-  height: 20px;
-} */
-
             /********   Default element styling   ********/
 
 html {
@@ -49,8 +36,6 @@ html {
 }
 
 body {
-  /* background: linear-gradient( rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95) ), url('../images/circuit.png');
-  background-position: center top;*/
   background-color: white;
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -71,12 +56,8 @@ button {
   border-radius: 10px;
   font-weight: bold;
   font-size: 1.05em;
-  /* box-shadow: 2px 2px 2px #737373;    conflicts with box-shadow: inset styling in buttons.css */
 }
 
-/* h1 {
-  margin-block-end: 0em; /* makes title and subtitle meet each other
-} */
 
 h4, h3 {
   margin: 0.5em;
@@ -101,7 +82,6 @@ ol > li {
 }
 .grnSpan {
   color: #00664d;
-  /* color: #00664d; */
   margin-left: 15px;
 }
 .redSpan {
@@ -137,22 +117,16 @@ ol > li {
   font-family: 'MuseoModerno', sans-serif;
   letter-spacing: 0.04em;
 }
+.navlogo {
+  font-family: 'MuseoModerno', sans-serif;
+  letter-spacing: 0.04em;
+}
 
 .logoDiv {
   padding-left: 0.5em;
   display: flex;
   align-items: center;
 }
-/*
-.brand {
-  color: black;
-  font-weight: bold;
-  font-size: 1.1em;
-  padding-right: 1em;
-}
-.brand:hover {
-  color: white;
-} */
 
 .greeting { /* panel that shows username */
   background-color: #f2f2f2;
@@ -219,6 +193,15 @@ ol > li {
 .linkDiv {
   margin-right: 2em;
 }
+
+@media (min-width: 1000px) {
+  .tinyLinkDiv {
+    display: none;
+  }
+}
+
+
+
 
 /* Links inside the navbar */
 .navlink {
@@ -521,7 +504,7 @@ input:-webkit-autofill {
   background-color: #1affc6;
   width: 75%;
   padding: 0.5em;
-  margin: auto;
+  margin: 0.5rem auto;
 }
 
 #editDiv, #deleteDiv, #checkInv {
@@ -598,6 +581,23 @@ input:-webkit-autofill {
   font-family: 'Roboto', sans-serif;
   outline: none;
 }
-/* .salesDivs {
-  padding: 2em;
-} */
+
+
+@media (max-width: 1000px) {
+  .linkDiv {
+    display: none;
+  }
+  .navlogo {
+    letter-spacing: 0.02em;
+    font-size: 0.95rem;
+  }
+  .greeting { /* panel that shows username */
+    padding: 0.25em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    font-size: 0.95rem;
+  }
+  .logout {
+    padding: 0.45em;
+  }
+}
