@@ -138,7 +138,7 @@ router.get("/reset", (req, res) => {
 //   }
 //
 //   if (errors.length > 0) { // if there ARE any errors stored in the errors array
-//     res.render("reset", {
+//     res.render("main/reset-unused", {
 //       errors, // because we have destructured above, we don't have to write "email:email" and so on
 //       token,
 //       email,
@@ -173,7 +173,7 @@ router.get("/reset", (req, res) => {
 //         } else {
 //           // push error that the email does not exist
 //           errors.push({ msg: "That email address is not yet registered" });
-//           res.render("reset", { errors, email, token, password, password2 });
+//           res.render("main/reset-unused", { errors, email, token, password, password2 });
 //         }
 //       }); // end of User.findOne().then()
 //   }
