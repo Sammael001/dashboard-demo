@@ -2,7 +2,7 @@
 ## Office Dashboard (demo version)
 
 This is a live demo of the app suite I built for my current employer, to help resolve issues with inter-office communications and logistics in our Customer Care department.
-The production version of this app suite is used daily by the Customer Care department, and includes the following:
+The production version of this app suite is used daily by the Customer Services Operations department, and includes the following:
 - An app to track warehouse inventory
 - An app to share inter-office memos and policy updates
 - An app to locate internal sales representatives by state, province or country
